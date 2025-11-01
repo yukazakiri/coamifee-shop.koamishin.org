@@ -1,0 +1,318 @@
+# Installation
+
+- [Install via Docker](#install-via-docker)
+  - [Docker Command](#docker-command)
+  - [Docker Compose](#docker-compose)
+  - [ARM based images](#arm-based-images)
+  - [Environment Variables](#environment-variables)
+- [Install on VPS](#install-on-vps)
+  - [Requirements](#requirements)
+  - [Installation Process](#installation-process)
+  - [Ready](#ready)
+- [Install Locally](#install-locally)
+  - [Laravel Sail](#laravel-sail)
+
+## Install via Docker
+
+The Coffee Shop Management System provides a single docker image that you can install it easily!
+
+### Docker Command
+
+```sh
+docker run -v coamifee_storage:/var/www/html/storage \
+    -v coamifee_database:/var/www/html/database \
+    -e APP_KEY=your_32_character_app_key  \
+    -e ADMIN_NAME=admin_name \
+    -e ADMIN_EMAIL=admin_email \
+    -e ADMIN_PASSWORD=admin_password \
+    -e APP_URL=http://your-coffee-shop-url \
+    -p 8000:80 yukazaki/coamifee-shop:latest
+```
+
+:::info
+`APP_KEY` is Laravel's encryption key and should be a 32-character string.
+
+<button
+  onClick={() => {
+    const randomBytes = new Uint8Array(32);
+    crypto.getRandomValues(randomBytes);
+    const base64String = `base64:${btoa(String.fromCharCode(...randomBytes))}`;
+    alert(base64String); // Show the generated string in an alert
+  }}
+  className="h-8 cursor-pointer rounded-md bg-indigo-500 px-4 py-2 text-white transition duration-200 hover:bg-indigo-600"
+>
+  Get a random APP_KEY
+</button>
+:::
+
+:::warning
+Make sure you modify the environment variables when running the command.
+:::
+
+:::warning
+In order to make sure the app works properly, Make sure you also set the `APP_URL` environment variable to the URL of your Coffee Shop Management System instance.
+
+Some features like order notifications and real-time updates work only if you set the `APP_URL` correctly.
+:::
+
+### Docker Compose
+
+```yaml
+version: '3'
+services:
+  coamifee-shop:
+    image: yukazaki/coamifee-shop:latest
+    ports:
+      - '8000:80'
+    environment:
+      APP_KEY: 'your-32-character-app-key'
+      ADMIN_NAME: 'Coffee Shop Admin'
+      ADMIN_EMAIL: 'admin@coffeeshop.com'
+      ADMIN_PASSWORD: 'password'
+      APP_URL: 'http://localhost:8000' # Change this to your coffee shop URL
+    volumes:
+      - 'coamifee-storage:/var/www/html/storage'
+      - 'coamifee-database:/var/www/html/database'
+volumes:
+  coamifee-storage:
+    driver: local
+  coamifee-database:
+    driver: local
+```
+
+:::info
+`:latest` tag is the latest release of Coffee Shop Management System from the `1.x` branch, which is stable and recommended for production use.
+
+However, if you would like to use the latest code on the `1.x` branch, you may change the image to `yukazaki/coamifee-shop:1.x`.
+:::
+
+### ARM based images
+
+For arm based architectures, you may add `-arm64` to the image name. For example, `yukazaki/coamifee-shop:1.x-arm64`
+
+### Environment Variables
+
+`APP_KEY`: A 32-character string app key used for encryption within the app.
+
+`APP_URL`: The URL of your Coffee Shop Management System instance, by default is `http://localhost:8000`
+
+`ADMIN_NAME`: Your admin account's name
+
+`ADMIN_EMAIL`: Your admin account's email for login
+
+`ADMIN_PASSWORD`: Your admin account's password for login (You can change it after login)
+
+`DB_CONNECTION`: Database connection type (default: `sqlite`)
+
+`DB_DATABASE`: Path to SQLite database file (default: `/var/www/html/database/database.sqlite`)
+
+## Install on VPS
+
+The Coffee Shop Management System can be installed on a **fresh** Ubuntu server with only one single command.
+
+### Requirements
+
+- Ubuntu 24.04 LTS Only
+- 1 GB Memory
+- 1 CPU
+- 80 and 443 ports should be open
+
+:::info
+Other Ubuntu versions have not been tested, and we don't recommend them.
+:::
+
+:::warning
+You cannot use the Coffee Shop Management System to install applications into the same server as the system. Otherwise, it might crash your instance.
+:::
+
+### Installation Process
+
+Login to the `root` user of your server via SSH and run the following command:
+
+```sh
+bash <(curl -Ls https://raw.githubusercontent.com/yukazaki/coamifee-shop/1.x/scripts/install.sh)
+```
+
+:::warning
+You need to run the command via `root` user!
+:::
+
+The installation will ask you for these inputs:
+
+**Admin Email**
+
+This is the admin email that you will use to log into your Coffee Shop Management System.
+
+You can also pass this input as an environment variable `ADMIN_EMAIL`
+
+**Admin Password**
+
+This is the admin user's password.
+
+You can also pass this input as an environment variable `ADMIN_PASSWORD`
+
+**Coffee Shop Name**
+
+The name of your coffee shop (used in the application interface).
+
+You can also pass this input as an environment variable `COFFEE_SHOP_NAME`
+
+### Ready
+
+The installation can take several minutes, and after it is done, it will print an output like below:
+
+```txt
+🎉 Coffee Shop Management System Installed!
+✅ SSH User: SSH-USER
+✅ SSH Password: SSH-PASSWORD
+✅ Admin Email: ADMIN-EMAIL
+✅ Admin Password: ADMIN-PASSWORD
+✅ Coffee Shop URL: http://YOUR-SERVER-IP
+```
+
+At this step, you can access your Coffee Shop Management System by visiting the IP address of your server on a browser.
+
+:::warning
+Make sure that your server is accessible via port 80 and 443.
+:::
+
+Now you can [configure your coffee shop settings](./configuration).
+
+## Install Locally
+
+To contribute to the Coffee Shop Management System and run it locally we have Laravel Sail ready!
+
+The Coffee Shop Management System is a Laravel project which means you can follow [Laravel Documentation](https://laravel.com) to see how you can run it locally but here we will recommend only one way.
+
+The system uses SQLite for local development to keep setup simple and lightweight.
+
+### Laravel Sail
+
+To run the app locally via Laravel Sail clone the repository into your local machine and then run the following commands:
+
+Set the environment file
+
+```sh
+cp .env.sail .env
+```
+
+Fill the `.env` file with your configuration and then install dependencies
+
+```sh
+composer install
+npm install
+```
+
+And then boot up with Sail
+
+```sh
+./vendor/bin/sail up -d
+```
+
+Generate App Key
+
+```sh
+./vendor/bin/sail artisan key:generate
+```
+
+Create the SQLite database file
+
+```sh
+./vendor/bin/sail artisan touch database/database.sqlite
+```
+
+Run the migrations
+
+```sh
+./vendor/bin/sail artisan migrate
+```
+
+Seed the database with sample data
+
+```sh
+./vendor/bin/sail artisan db:seed
+```
+
+Create a new admin user
+
+```sh
+./vendor/bin/sail artisan admin:create {name} {email} {password}
+```
+
+The Coffee Shop Management System by default will run on localhost:8000. You can change the port on your `.env` file.
+
+[Sail Documentation](https://laravel.com/docs/12.x/sail)
+
+:::warning
+Make sure you set these [environment variables](#environment-variables) properly according to the Docker installation.
+:::
+
+## Quick Start Commands
+
+Once installed, you can use these Artisan commands to manage your coffee shop:
+
+```sh
+# Create sample products
+php artisan coffee:products:create
+
+# Generate sample orders
+php artisan coffee:orders:generate
+
+# View system status
+php artisan coffee:status
+
+# Clear all caches
+php artisan coffee:clear
+
+# Backup your data
+php artisan coffee:backup
+```
+
+## Environment Configuration
+
+### Database Configuration
+
+For local development, the system uses SQLite by default:
+
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=/var/www/html/database/database.sqlite
+```
+
+For production, you can switch to MySQL or PostgreSQL:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=coffeeshop
+DB_USERNAME=username
+DB_PASSWORD=password
+```
+
+### Email Configuration
+
+Configure email settings for customer notifications:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@yourcoffeeshop.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+### Cache Configuration
+
+Redis is recommended for production to handle real-time features:
+
+```env
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+```
+
+The Coffee Shop Management System is now ready to help you manage your coffee shop operations efficiently!

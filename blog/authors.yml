@@ -1,9 +1,10 @@
-saeedvaziry:
-  name: Saeed Vaziry
-  title: Software Engineer
-  url: https://github.com/saeedvaziry
-  image_url: https://github.com/saeedvaziry.png
+yukazaki:
+  name: Yukazaki
+  title: Coffee Shop Management System Lead Developer
+  url: https://github.com/yukazaki
+  image_url: https://github.com/yukazaki.png
   page: true
   socials:
-    x: saeed_vz
-    github: saeedvaziry
+    x: yukazaki_dev
+    github: yukazaki
+    linkedin: yukazaki

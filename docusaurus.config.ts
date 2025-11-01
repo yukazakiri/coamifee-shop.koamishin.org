@@ -1,24 +1,24 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'VitoDeploy',
-  tagline: 'The Ultimate Server Management Tool',
+  title: 'Coamifee',
+  tagline: 'The Ultimate Coffee Shop Management',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://vitodeploy.com',
+  url: 'https://coamifee.koamishin.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'vitodeploy', // Usually your GitHub org/user name.
-  projectName: 'vito', // Usually your repo name.
+  organizationName: 'koamishin', // Usually your GitHub org/user name.
+  projectName: 'coamifee-shop', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -40,7 +40,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/vitodeploy/vitodeploy.com/tree/main',
+          editUrl: 'https://github.com/koamishin/coamifee-shop/tree/main',
         },
         blog: {
           showReadingTime: true,
@@ -60,11 +60,11 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/social-card.jpg',
+    image: 'img/social-card.png',
     navbar: {
-      title: 'VitoDeploy',
+      title: 'Coamifee',
       logo: {
-        alt: 'VitoDeploy Logo',
+        alt: 'Coamifee Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -75,15 +75,15 @@ const config: Config = {
         //   label: 'Docs',
         //   to: '/docs/getting-started/introduction',
         // },
-        {to: '/docs/getting-started/introduction', label: 'Docs', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: 'https://demo.vitodeploy.com', label: 'Live Demo', position: 'left'},
+        { to: '/docs/getting-started/introduction', label: 'Docs', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: 'https://demo-coamifee.koamishin.org', label: 'Live Demo', position: 'left' },
         {
           type: 'docsVersionDropdown',
           position: 'right',
         },
         {
-          href: 'https://github.com/vitodeploy/vito',
+          href: 'https://github.com/koamishin/coamifee-shop',
           position: 'right',
           className: 'header-github-link',
         },
@@ -93,13 +93,12 @@ const config: Config = {
           className: 'header-discord-link',
         },
         {
-          href: 'https://x.com/vitodeploy',
+          href: 'https://x.com/koamishin',
           position: 'right',
           className: 'header-x-link',
         },
         {
-          
-          href: 'https://youtube.com/saeedvaziry',
+          href: 'https://youtube.com/koamishin',
           position: 'right',
           className: 'header-youtube-link',
         },
@@ -130,7 +129,7 @@ const config: Config = {
             },
             {
               label: 'X',
-              href: 'https://x.com/vitodeploy',
+              href: 'https://x.com/koamishin',
             },
           ],
         },
@@ -139,17 +138,17 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/vitodeploy/vito',
+              href: 'https://github.com/koamishin/coamifee-shop',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} VitoDeploy. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Koamishin. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['php']
+      theme: prismThemes.duotoneLight,
+      darkTheme: prismThemes.duotoneDark,
+      additionalLanguages: ['php'],
     },
     algolia: {
       // The application ID provided by Algolia
@@ -158,7 +157,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'd37bbbcb5d06e88c415a34892ac3d937',
 
-      indexName: 'vitodeploy',
+      indexName: 'coamifee',
 
       // Optional: see doc section below
       contextualSearch: false,
@@ -174,9 +173,7 @@ const config: Config = {
 
       //... other Algolia params
     },
-    plugins: [
-      ['./src/plugins/tailwind-config.js', {}],
-    ]
+    plugins: [['./src/plugins/tailwind-config.js', {}]],
   } satisfies Preset.ThemeConfig,
 };
 

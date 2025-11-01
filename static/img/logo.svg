@@ -1,10 +1,46 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="22" y="22" width="980" height="980" rx="200" fill="#312E81" />
+    <rect x="22" y="22" width="980" height="980" rx="200" fill="#6F4E37" />
     <rect x="22" y="22" width="980" height="980" rx="200" fill="url(#paint0_linear_29_4)" />
     <g filter="url(#filter0_d_29_4)">
+        <!-- Coffee cup body -->
         <path
-            d="M511.877 830.95C499.41 830.95 488.927 828.117 480.427 822.45C472.494 816.217 465.977 807.15 460.877 795.25L232.227 277.6C227.694 265.7 226.56 255.5 228.827 247C231.094 238.5 235.627 231.983 242.427 227.45C249.794 222.35 258.577 219.8 268.777 219.8C281.81 219.8 291.727 222.633 298.527 228.3C305.327 233.967 310.994 242.467 315.527 253.8L529.727 750.2H498.277L710.777 252.95C715.877 242.183 721.827 233.967 728.627 228.3C735.994 222.633 745.91 219.8 758.377 219.8C768.577 219.8 776.794 222.35 783.027 227.45C789.827 231.983 794.077 238.5 795.777 247C797.477 255.5 795.777 265.7 790.677 277.6L562.877 795.25C557.777 807.15 551.26 816.217 543.327 822.45C535.394 828.117 524.91 830.95 511.877 830.95Z"
-            fill="white" />
+            d="M320 320L340 640C340 660 355 675 375 675L625 675C645 675 660 660 660 640L680 320Z"
+            fill="white"
+            stroke="none"/>
+        <!-- Coffee cup handle -->
+        <path
+            d="M680 420C680 420 720 420 740 440C760 460 760 500 740 520C720 540 680 540 680 540"
+            fill="none"
+            stroke="white"
+            stroke-width="40"
+            stroke-linecap="round"/>
+        <!-- Coffee liquid -->
+        <path
+            d="M350 380L365 620C365 630 372 637 382 637L618 637C628 637 635 630 635 620L650 380Z"
+            fill="#4A3426"
+            stroke="none"/>
+        <!-- Steam lines -->
+        <path
+            d="M420 280Q415 240 420 200"
+            fill="none"
+            stroke="white"
+            stroke-width="20"
+            stroke-linecap="round"
+            opacity="0.8"/>
+        <path
+            d="M500 280Q495 240 500 200"
+            fill="none"
+            stroke="white"
+            stroke-width="20"
+            stroke-linecap="round"
+            opacity="0.8"/>
+        <path
+            d="M580 280Q575 240 580 200"
+            fill="none"
+            stroke="white"
+            stroke-width="20"
+            stroke-linecap="round"
+            opacity="0.8"/>
     </g>
     <defs>
         <filter id="filter0_d_29_4" x="221.427" y="219.8" width="580.9" height="619.15" filterUnits="userSpaceOnUse"
@@ -20,8 +56,8 @@
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_29_4" result="shape" />
         </filter>
         <linearGradient id="paint0_linear_29_4" x1="512" y1="22" x2="512" y2="1002" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#6366F1" />
-            <stop offset="1" stop-color="#393B8B" />
+            <stop stop-color="#8B6F47" />
+            <stop offset="1" stop-color="#6F4E37" />
         </linearGradient>
     </defs>
 </svg>

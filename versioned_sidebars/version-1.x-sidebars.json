@@ -6,6 +6,11 @@
       "items": [
         {
           "type": "doc",
+          "label": "Release Notes",
+          "id": "prologue/release-notes"
+        },
+        {
+          "type": "doc",
           "label": "Upgrade Guide",
           "id": "prologue/upgrade"
         },
@@ -44,133 +49,6 @@
           "type": "doc",
           "label": "Update",
           "id": "getting-started/update"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Servers",
-      "items": [
-        {
-          "type": "doc",
-          "id": "servers/server-providers"
-        },
-        {
-          "type": "doc",
-          "id": "servers/server-types"
-        },
-        {
-          "type": "doc",
-          "id": "servers/database"
-        },
-        {
-          "type": "doc",
-          "id": "servers/database-backups"
-        },
-        {
-          "type": "doc",
-          "id": "servers/php"
-        },
-        {
-          "type": "doc",
-          "id": "servers/firewall"
-        },
-        {
-          "type": "doc",
-          "id": "servers/cronjobs"
-        },
-        {
-          "type": "doc",
-          "id": "servers/ssh-keys"
-        },
-        {
-          "type": "doc",
-          "id": "servers/services"
-        },
-        {
-          "type": "doc",
-          "id": "servers/monitoring"
-        },
-        {
-          "type": "doc",
-          "id": "servers/console"
-        },
-        {
-          "type": "doc",
-          "id": "servers/redis"
-        },
-        {
-          "type": "doc",
-          "id": "servers/settings"
-        },
-        {
-          "type": "doc",
-          "id": "servers/logs"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Sites",
-      "items": [
-        {
-          "type": "doc",
-          "id": "sites/create-site"
-        },
-        {
-          "type": "doc",
-          "id": "sites/application"
-        },
-        {
-          "type": "doc",
-          "id": "sites/ssl"
-        },
-        {
-          "type": "doc",
-          "id": "sites/queues"
-        },
-        {
-          "type": "doc",
-          "id": "sites/settings"
-        }
-      ]
-    },
-    {
-      "type": "doc",
-      "label": "Scripts",
-      "id": "scripts"
-    },
-    {
-      "type": "category",
-      "label": "Settings",
-      "items": [
-        {
-          "type": "doc",
-          "id": "settings/profile"
-        },
-        {
-          "type": "doc",
-          "id": "settings/projects"
-        },
-        {
-          "type": "doc",
-          "id": "settings/server-providers"
-        },
-        {
-          "type": "doc",
-          "id": "settings/source-controls"
-        },
-        {
-          "type": "doc",
-          "id": "settings/notification-channels"
-        },
-        {
-          "type": "doc",
-          "id": "settings/storage-providers"
-        },
-        {
-          "type": "doc",
-          "id": "settings/tags"
         }
       ]
     }
