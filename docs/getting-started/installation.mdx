@@ -25,7 +25,10 @@ docker run -v vito_storage:/var/www/html/storage \
     -e NAME=admin_name \
     -e EMAIL=admin_email \
     -e PASSWORD=admin_password \
-    -e APP_URL=http://your-vito-url \
+    -e APP_URL=http://localhost \
+    -e APP_ENV=production \
+    -e APP_DEBUG=false \
+    -e APP_NAME=Coamifee \
     -p 80:80 vitodeploy/vito:latest
 ```
 

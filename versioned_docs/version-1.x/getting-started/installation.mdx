@@ -25,8 +25,11 @@ docker run -v coamifee_storage:/var/www/html/storage \
     -e ADMIN_NAME=admin_name \
     -e ADMIN_EMAIL=admin_email \
     -e ADMIN_PASSWORD=admin_password \
-    -e APP_URL=http://your-coffee-shop-url \
-    -p 8000:80 yukazaki/coamifee-shop:latest
+    -e APP_URL=http://localhost \
+    -e APP_NAME=Coamifee \
+    -e APP_ENV=production \
+    -e APP_DEBUG=false \
+    -p 80:80 yukazaki/coamifee-shop:latest
 ```
 
 :::info
